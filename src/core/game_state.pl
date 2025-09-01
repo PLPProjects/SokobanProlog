@@ -34,14 +34,27 @@ delta(s, 1, 0).   % baixo
 delta(a, 0, -1).  % esquerda
 delta(d, 0, 1).   % direita
 
+% Verifica se pode mover para a posição (Linha, Coluna) no mapa
+pode_mover(Map, Linha, Coluna) :-
+    nth0(Linha, Map, Line),
+    nth0(Coluna, Line, Cell),
+    Cell \= parede,
+    Cell \= caixa.
+
 move_player(Map, (Row, Col), Move, NewMap, (NewRow, NewCol)) :-
     delta(Move, DY, DX),
     NewRow is Row + DY,
     NewCol is Col + DX,
+
+    (pode_mover(Map, NewRow, NewCol) ->
     % limpa posição antiga
     update_map(Map, (Row, Col), vazio, TempMap),
     % coloca jogador na nova posição
-    update_map(TempMap, (NewRow, NewCol), jogador, NewMap).
+    update_map(TempMap, (NewRow, NewCol), jogador, NewMap);
+    NewMap = Map,
+    NewRow = Row,
+    NewCol = Col
+    ).
 
 %% ==========================
 %% ATUALIZAÇÃO DO MAPA
