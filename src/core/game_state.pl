@@ -41,19 +41,20 @@ pode_mover(Map, Linha, Coluna) :-
     Cell \= parede,
     Cell \= caixa.
 
-move_player(Map, (Row, Col), Move, NewMap, (NewRow, NewCol)) :-
+move_player(Map, (Row, Col), Move, NewMap, NewPos) :-
     delta(Move, DY, DX),
     NewRow is Row + DY,
     NewCol is Col + DX,
 
-    (pode_mover(Map, NewRow, NewCol) ->
+    (pode_mover(Map, NewRow, NewCol) -> % if NewPos != (caixa&&parede)
     % limpa posição antiga
-    update_map(Map, (Row, Col), vazio, TempMap),
+        update_map(Map, (Row, Col), vazio, TempMap),
     % coloca jogador na nova posição
-    update_map(TempMap, (NewRow, NewCol), jogador, NewMap);
-    NewMap = Map,
-    NewRow = Row,
-    NewCol = Col
+        update_map(TempMap, (NewRow, NewCol), jogador, NewMap),
+        NewPos = (NewRow, NewCol)
+    ;%else: (retorna posição sem movimento)
+        NewMap = Map,
+        NewPos = (Row, Col)
     ).
 
 %% ==========================
