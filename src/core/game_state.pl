@@ -35,27 +35,65 @@ delta(a, 0, -1).  % esquerda
 delta(d, 0, 1).   % direita
 
 % Verifica se pode mover para a posição (Linha, Coluna) no mapa
-pode_mover(Map, Linha, Coluna) :-
+% pode_mover(Map, Linha, Coluna) :-
+%     nth0(Linha, Map, Line),
+%     nth0(Coluna, Line, Cell),
+%     Cell \= parede,
+%     Cell \= caixa.
+
+% verifica se a posição é uma parede
+eh_parede(Map,Linha,Coluna) :-
     nth0(Linha, Map, Line),
     nth0(Coluna, Line, Cell),
-    Cell \= parede,
-    Cell \= caixa.
+    Cell == parede.
 
-move_player(Map, (Row, Col), Move, NewMap, NewPos) :-
+% verifica se a posição é uma caixa
+eh_caixa(Map,Linha,Coluna) :-
+    nth0(Linha, Map, Line),
+    nth0(Coluna, Line, Cell),
+    Cell == caixa.
+
+move_player(Map, (Row, Col), Move, NewMap, NewPlayerPos) :-
+    % encontra posição+1 (posição+1 É onde o personagem fica caso o movimento seja válido)
     delta(Move, DY, DX),
     NewRow is Row + DY,
     NewCol is Col + DX,
 
-    (pode_mover(Map, NewRow, NewCol) -> % if NewPos != (caixa&&parede)
-    % limpa posição antiga
+    (\+ eh_parede(Map, NewRow, NewCol) -> % se posição+1 NÃO é parede
+        (eh_caixa(Map, NewRow, NewCol) -> % se posição+1 é caixa
+            % encontra posição+2 (posição+2 É onde a caixa fica caso ela possa ser empurrada)
+            Row_depois_da_caixa is NewRow + DY,
+            Col_depois_da_caixa is NewCol + DX,
+            (\+eh_caixa(Map, Row_depois_da_caixa, Col_depois_da_caixa),\+eh_parede(Map, Row_depois_da_caixa, Col_depois_da_caixa) -> %se a posição+2 não for nem parede nem caixa a caixa na posição+1 é empurrada
+                update_map(Map, (Row, Col), vazio, TempMap),
+                update_map(TempMap, (NewRow, NewCol), jogador, TempMap2),
+                update_map(TempMap2, (Row_depois_da_caixa, Col_depois_da_caixa), caixa, NewMap),
+                NewPlayerPos = (NewRow, NewCol)
+            ;
+                NewMap = Map,
+                NewPlayerPos = (Row, Col)
+            )
+        ;
+        % se a posição+1 não for caixa, realiza movimento normalmente
         update_map(Map, (Row, Col), vazio, TempMap),
-    % coloca jogador na nova posição
         update_map(TempMap, (NewRow, NewCol), jogador, NewMap),
-        NewPos = (NewRow, NewCol)
-    ;%else: (retorna posição sem movimento)
-        NewMap = Map,
-        NewPos = (Row, Col)
+        NewPlayerPos = (NewRow, NewCol)
+        )
+    ;%posição+1 é parede
+    NewMap = Map,
+    NewPlayerPos = (Row, Col)
     ).
+        
+    % (pode_mover(Map, NewRow, NewCol) -> % if NewPlayerPos != (caixa&&parede)
+    % % limpa posição antiga
+    %     update_map(Map, (Row, Col), vazio, TempMap),
+    % % coloca jogador na nova posição
+    %     update_map(TempMap, (NewRow, NewCol), jogador, NewMap),
+    %     NewPlayerPos = (NewRow, NewCol)
+    % ;%else: (retorna posição sem movimento)
+    %     NewMap = Map,
+    %     NewPlayerPos = (Row, Col)
+    % ).
 
 %% ==========================
 %% ATUALIZAÇÃO DO MAPA
