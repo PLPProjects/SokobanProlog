@@ -5,7 +5,7 @@ maps([
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, jogador, vazio, vazio, vazio, vazio, parede],
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
-          [parede, vazio, vazio, vazio, caixa, vazio, parede],
+          [parede, vazio, caixa, marca, caixa, marca, parede],
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede] ],
         [[3,3],[3,5]],

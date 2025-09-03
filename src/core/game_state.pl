@@ -6,18 +6,23 @@
 %% INICIALIZAÇÃO DO JOGO
 %% ==========================
 start([PrimeiroMapa|_]) :- %por enquanto ta só pegando o primeiro mapa pra teste
-    PrimeiroMapa = map(TileMap, _Marks, _Difficulty),
+    PrimeiroMapa = map(TileMap, Marks, _Difficulty),
     find_player(TileMap, PlayerPos),
-    game_loop(TileMap, PlayerPos).
+    game_loop(TileMap, Marks, PlayerPos).
 
 %% ==========================
 %% LOOP DO JOGO 
 %% ==========================
-game_loop(Map, PlayerPos) :-
+game_loop(Map, Marks, PlayerPos) :-
     print_tile_map(Map),
-    capture_move(Move),
-    move_player(Map, PlayerPos, Move, NewMap, NewPlayerPos),
-    game_loop(NewMap, NewPlayerPos).
+    ( checa_vitoria(Map, Marks) ->
+        print_you_win,
+        !        %interrompe o loop quando vence
+    ;
+        capture_move(Move),
+        move_player(Map, PlayerPos, Move, NewMap, NewPlayerPos),
+        game_loop(NewMap, Marks, NewPlayerPos)
+    ).
 
 %% ==========================
 %% ENCONTRA O JOGADOR
@@ -26,21 +31,10 @@ find_player(Map, (Row, Col)) :-
     nth0(Row, Map, Line),
     nth0(Col, Line, jogador), !.
 
-%% ==========================
-%% MOVIMENTO (n ta considerando parede nem caixa)
-%% ==========================
-delta(w, -1, 0).  % cima
-delta(s, 1, 0).   % baixo
-delta(a, 0, -1).  % esquerda
-delta(d, 0, 1).   % direita
 
-% Verifica se pode mover para a posição (Linha, Coluna) no mapa
-% pode_mover(Map, Linha, Coluna) :-
-%     nth0(Linha, Map, Line),
-%     nth0(Coluna, Line, Cell),
-%     Cell \= parede,
-%     Cell \= caixa.
-
+%% ==============================
+%% VERIFICAÇÃO DE TIPO DA POSIÇÃO
+%% ==============================
 % verifica se a posição é uma parede
 eh_parede(Map,Linha,Coluna) :-
     nth0(Linha, Map, Line),
@@ -52,6 +46,20 @@ eh_caixa(Map,Linha,Coluna) :-
     nth0(Linha, Map, Line),
     nth0(Coluna, Line, Cell),
     Cell == caixa.
+
+% verifica se a posição é uma marca
+eh_marca(Marks, Linha, Coluna) :-
+    %verifica se a coordenada recebida está na lista de coordenadas do mapa
+    member([Linha, Coluna], Marks).
+    
+
+%% ==========================
+%% MOVIMENTO 
+%% ==========================
+delta(w, -1, 0).  % cima
+delta(s, 1, 0).   % baixo
+delta(a, 0, -1).  % esquerda
+delta(d, 0, 1).   % direita
 
 move_player(Map, (Row, Col), Move, NewMap, NewPlayerPos) :-
     % encontra posição+1 (posição+1 É onde o personagem fica caso o movimento seja válido)
@@ -83,17 +91,17 @@ move_player(Map, (Row, Col), Move, NewMap, NewPlayerPos) :-
     NewMap = Map,
     NewPlayerPos = (Row, Col)
     ).
-        
-    % (pode_mover(Map, NewRow, NewCol) -> % if NewPlayerPos != (caixa&&parede)
-    % % limpa posição antiga
-    %     update_map(Map, (Row, Col), vazio, TempMap),
-    % % coloca jogador na nova posição
-    %     update_map(TempMap, (NewRow, NewCol), jogador, NewMap),
-    %     NewPlayerPos = (NewRow, NewCol)
-    % ;%else: (retorna posição sem movimento)
-    %     NewMap = Map,
-    %     NewPlayerPos = (Row, Col)
-    % ).
+
+%% ==========================
+%% CHECA VITÓRIA
+%% ==========================
+checa_vitoria(Map, Marks) :-
+    forall(
+        member([Linha, Coluna], Marks),
+        eh_caixa(Map, Linha, Coluna)
+    ).
+
+
 
 %% ==========================
 %% ATUALIZAÇÃO DO MAPA
@@ -122,6 +130,10 @@ print_cell(vazio)   :- write(' ').
 print_cell(jogador) :- write('@').
 print_cell(caixa)   :- write('B').
 print_cell(marca)   :- write('x').
+
+
+print_you_win :-
+    write('VITÓRIA'), nl.
 
 %% ==========================
 %% CAPTURA MOVIMENTO
