@@ -20,7 +20,7 @@ game_loop(Map, Marks, PlayerPos) :-
         !        %interrompe o loop quando vence
     ;
         capture_move(Move),
-        move_player(Map, PlayerPos, Move, NewMap, NewPlayerPos),
+        move_player(Map, Marks, PlayerPos, Move, NewMap, NewPlayerPos),
         game_loop(NewMap, Marks, NewPlayerPos)
     ).
 
@@ -51,7 +51,8 @@ eh_caixa(Map,Linha,Coluna) :-
 eh_marca(Marks, Linha, Coluna) :-
     %verifica se a coordenada recebida está na lista de coordenadas do mapa
     member([Linha, Coluna], Marks).
-    
+
+
 
 %% ==========================
 %% MOVIMENTO 
@@ -61,7 +62,7 @@ delta(s, 1, 0).   % baixo
 delta(a, 0, -1).  % esquerda
 delta(d, 0, 1).   % direita
 
-move_player(Map, (Row, Col), Move, NewMap, NewPlayerPos) :-
+move_player(Map, Marks, (Row, Col), Move, NewMap, NewPlayerPos) :-
     % encontra posição+1 (posição+1 É onde o personagem fica caso o movimento seja válido)
     delta(Move, DY, DX),
     NewRow is Row + DY,
@@ -73,7 +74,12 @@ move_player(Map, (Row, Col), Move, NewMap, NewPlayerPos) :-
             Row_depois_da_caixa is NewRow + DY,
             Col_depois_da_caixa is NewCol + DX,
             (\+eh_caixa(Map, Row_depois_da_caixa, Col_depois_da_caixa),\+eh_parede(Map, Row_depois_da_caixa, Col_depois_da_caixa) -> %se a posição+2 não for nem parede nem caixa a caixa na posição+1 é empurrada
-                update_map(Map, (Row, Col), vazio, TempMap),
+                % se a posição que o jogador estava era marca, faz com que a marca seja impressa novamente
+                (eh_marca(Marks, Row, Col) -> 
+                    update_map(Map, (Row, Col), marca, TempMap)
+                ;
+                    update_map(Map, (Row, Col), vazio, TempMap)
+                ),
                 update_map(TempMap, (NewRow, NewCol), jogador, TempMap2),
                 update_map(TempMap2, (Row_depois_da_caixa, Col_depois_da_caixa), caixa, NewMap),
                 NewPlayerPos = (NewRow, NewCol)
@@ -81,9 +87,14 @@ move_player(Map, (Row, Col), Move, NewMap, NewPlayerPos) :-
                 NewMap = Map,
                 NewPlayerPos = (Row, Col)
             )
+        ;% se a posição+1 não for caixa, realiza movimento normalmente
+        
+        % se a posição que o jogador estava era marca, faz com que a marca seja impressa novamente
+        (eh_marca(Marks, Row, Col) -> 
+            update_map(Map, (Row, Col), marca, TempMap)
         ;
-        % se a posição+1 não for caixa, realiza movimento normalmente
-        update_map(Map, (Row, Col), vazio, TempMap),
+            update_map(Map, (Row, Col), vazio, TempMap)
+        ),
         update_map(TempMap, (NewRow, NewCol), jogador, NewMap),
         NewPlayerPos = (NewRow, NewCol)
         )
