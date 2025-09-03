@@ -9,7 +9,7 @@ maps([
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede] ],
         [[3,3],[3,5]],
-        easy
+        facil
     ),
     map(
         [ [parede, parede, parede, parede, parede, parede, parede],
@@ -19,7 +19,7 @@ maps([
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede] ],
         [[3,3],[3,5]],
-        easy
+        facil
     ),
 
     map(
@@ -31,7 +31,7 @@ maps([
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede] ],
         [[2,3],[4,3]],
-        easy
+        facil
     ),
 
     map(
@@ -42,7 +42,7 @@ maps([
           [parede, vazio, vazio, marca, parede, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede, parede] ],
         [[1,3],[2,5],[4,3]],
-        easy
+        facil
     ),
 
     map(
@@ -54,7 +54,7 @@ maps([
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede] ],
         [[3,3],[3,4],[3,5]],
-        easy
+        facil
     ),
 
     map(
@@ -65,7 +65,7 @@ maps([
           [parede, vazio, vazio, parede, marca, vazio, parede, parede],
           [parede, parede, parede, parede, parede, parede, parede, parede] ],
         [[2,4],[2,5],[4,5]],
-        easy
+        facil
     )
 
 ]).
