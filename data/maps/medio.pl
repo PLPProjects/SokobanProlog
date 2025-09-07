@@ -1,8 +1,8 @@
-:- module(medio, [maps/1]).
+:- module(medio, [mapas/1]).
 
-maps([
+mapas([
 
-    map(
+  mapa(
         [ [vazio,vazio,vazio,vazio,parede,parede,parede,parede,parede,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio],
           [vazio,vazio,vazio,vazio,parede,vazio,vazio,vazio,parede,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio],
           [vazio,vazio,vazio,vazio,parede,caixa,vazio,vazio,parede,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio],
@@ -19,7 +19,7 @@ maps([
         medio
     ),
 
-    map(
+  mapa(
         [ [parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,vazio,vazio],
           [parede,marca,marca,vazio,vazio,parede,vazio,vazio,vazio,vazio,vazio,parede,parede,parede],
           [parede,marca,marca,vazio,parede,vazio,caixa,vazio,vazio,caixa,vazio,vazio,vazio,parede],
@@ -35,7 +35,7 @@ maps([
         medio
     ),
 
-    map(
+  mapa(
         [ [vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,parede,parede,parede,parede,parede,vazio],
           [vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,vazio,vazio,vazio,vazio,jogador,parede,vazio],
           [vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,vazio,caixa,parede,caixa,vazio,parede,parede,vazio],
@@ -51,7 +51,7 @@ maps([
         medio
     ),
 
-    map(
+  mapa(
         [ [vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,parede,parede,parede,parede,parede,parede],
           [vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,vazio,vazio,marca,marca,marca,parede],
           [parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,vazio,vazio,marca,marca,marca,parede],
@@ -71,7 +71,7 @@ maps([
         medio
     ),
 
-    map(
+  mapa(
         [ [vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,parede,parede,parede,vazio,vazio],
           [vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,vazio,vazio,parede,parede,parede],
           [vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,vazio,parede,caixa,parede,vazio,parede],

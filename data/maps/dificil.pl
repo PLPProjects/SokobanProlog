@@ -1,8 +1,8 @@
-:- module(dificil, [maps/1]).
+:- module(dificil, [mapas/1]).
 
-maps([
+mapas([
 
-    map(
+  mapa(
         [
           [vazio,vazio,vazio,parede,parede,parede,vazio,vazio,vazio,vazio,vazio],
           [vazio,vazio,vazio,parede,vazio,parede,vazio,parede,parede,parede,parede],
@@ -20,7 +20,7 @@ maps([
         dificil
     ),
 
-    map(
+  mapa(
         [
           [vazio,parede,parede,vazio,parede,parede,parede,parede,parede],
           [parede,parede,vazio,parede,parede,vazio,marca,vazio,parede],
@@ -36,7 +36,7 @@ maps([
         dificil
     ),
 
-    map(
+  mapa(
         [
           [parede,parede,parede,parede,vazio,vazio,vazio,vazio],
           [parede,marca,vazio,parede,vazio,vazio,vazio,vazio],
@@ -51,7 +51,7 @@ maps([
         dificil
     ),
 
-    map(
+  mapa(
         [
           [vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,parede,parede,parede,parede,vazio,vazio,vazio],
           [vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,vazio,parede,parede,vazio,vazio,vazio,parede,parede,vazio,vazio],
@@ -73,7 +73,7 @@ maps([
         dificil
     ),
 
-    map(
+  mapa(
         [
           [vazio,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,vazio,vazio],
           [vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,vazio],

@@ -10,6 +10,7 @@ Declara o arquivo como módulo e exporta o predicado limpar_tela para os outros 
     limpar_tela/0
 ]).
 
+
 /**
 Predicado que limpa a tela (utilizando um código de escape ANSI)
 */

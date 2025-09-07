@@ -2,26 +2,29 @@
 @file menu.pl: Responsável pela interação visual com o usuário, exibindo os menus no terminal.
 */
 
+
 /**
 Declara arquivo como módulo e exporta os predicados para os outros módulos.
 */
 :- module(menu, [
-    display_main_menu/1,
-    display_difficulty_menu/1,
-    display_level_menu/2,
+    exibir_menu_principal/1,
+    exibir_menu_dificuldade/1,
+    exibir_menu_nivel/2,
     ler_numero/1
 ]).
+
 
 /**
 Importa o módulo console.
 */
 :- use_module('../utils/console').
 
+
 /**
 Predicado que exibe o menu principal do jogo.
 @param Escolha: escolha do usuário. 
 */
-display_main_menu(Escolha) :-
+exibir_menu_principal(Escolha) :-
     console:limpar_tela,
     nl,
     write('\e[33m===================='), nl,
@@ -34,11 +37,12 @@ display_main_menu(Escolha) :-
     write('\e[34mEscolha uma opção: \e[0m'),
     ler_numero(Escolha).
 
+
 /**
 Predicado que exibe o menu de seleção da dificuldade do jogo.
 @param Escolha: escolha do usuário. 
 */
-display_difficulty_menu(Escolha) :-
+exibir_menu_dificuldade(Escolha) :-
     console:limpar_tela,
     nl,
     write('\e[33m======================='), nl,
@@ -52,12 +56,13 @@ display_difficulty_menu(Escolha) :-
     write('\e[34mEscolha uma opção: \e[0m'),
     ler_numero(Escolha).
 
+
 /**
 Predicado que exibe o menu de seleção de um nível específico do jogo.
 @param Escolha: escolha do usuário. 
 @param TotalDeNiveis: Informação para o usuário saber quanto níveis tem disponíveis.
 */
-display_level_menu(TotalDeNiveis, Escolha) :-
+exibir_menu_nivel(TotalDeNiveis, Escolha) :-
     console:limpar_tela,
     nl,
     write('\e[33m======================='), nl,
@@ -66,6 +71,7 @@ display_level_menu(TotalDeNiveis, Escolha) :-
     write('\e[33mNíveis disponíveis: 1 a \e[0m'), write(TotalDeNiveis), nl,
     write('\e[34mDigite o número do nível: \e[0m'),
     ler_numero(Escolha).
+
 
 /**
 Predicado que lê a entrada do usuário e válida se é um número.

@@ -1,7 +1,7 @@
-:- module(facil, [maps/1]).
+:- module(facil, [mapas/1]).
 
-maps([
-    map( %para teste
+mapas([
+  mapa( %para teste
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, jogador, vazio, vazio, vazio, vazio, parede],
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
@@ -11,7 +11,7 @@ maps([
         [[3,3],[3,5]],
         facil
     ),
-    map(
+  mapa(
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, jogador, vazio, vazio, vazio, parede, parede],
           [parede, vazio, caixa, caixa, vazio, parede, parede],
@@ -22,7 +22,7 @@ maps([
         facil
     ),
 
-    map(
+  mapa(
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, parede, parede, vazio, vazio, parede, parede],
           [parede, jogador, vazio, marca, caixa, parede, parede],
@@ -34,7 +34,7 @@ maps([
         facil
     ),
 
-    map(
+  mapa(
         [ [parede, parede, parede, parede, parede, parede, parede, parede],
           [parede, vazio, vazio, marca, vazio, vazio, parede, parede],
           [parede, vazio, caixa, caixa, parede, marca, vazio, parede],
@@ -45,7 +45,7 @@ maps([
         facil
     ),
 
-    map(
+  mapa(
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, jogador, vazio, vazio, parede, parede, parede],
           [parede, vazio, caixa, caixa, caixa, vazio, parede],
@@ -57,7 +57,7 @@ maps([
         facil
     ),
 
-    map(
+  mapa(
         [ [parede, parede, parede, parede, parede, parede, parede, parede],
           [parede, vazio, vazio, vazio, vazio, parede, parede, parede],
           [parede, vazio, vazio, marca, marca, vazio, parede, parede],
