@@ -24,14 +24,14 @@ Predicado que exibe o menu principal do jogo.
 display_main_menu(Escolha) :-
     console:limpar_tela,
     nl,
-    write('===================='), nl,
-    write('      SOKOBAN       '), nl,
-    write('===================='), nl,
-    write('1. Jogar'), nl,
-    write('2. Escolher Nível'), nl,
-    write('3. Sair'), nl,
-    write('===================='), nl,
-    write('Escolha uma opção: '),
+    write('\e[33m===================='), nl,
+    write('\e[33m      SOKOBAN       '), nl,
+    write('\e[33m===================='), nl,
+    write('\e[33m1. Jogar'), nl,
+    write('\e[33m2. Escolher Nível'), nl,
+    write('\e[33m3. Sair'), nl,
+    write('\e[33m====================\e[0m'), nl,
+    write('\e[34mEscolha uma opção: \e[0m'),
     ler_numero(Escolha).
 
 /**
@@ -41,15 +41,15 @@ Predicado que exibe o menu de seleção da dificuldade do jogo.
 display_difficulty_menu(Escolha) :-
     console:limpar_tela,
     nl,
-    write('======================='), nl,
-    write(' ESCOLHA A DIFICULDADE '), nl,
-    write('======================='), nl,
-    write('1. Fácil'), nl,
-    write('2. Médio'), nl,
-    write('3. Difícil'), nl,
-    write('4. Voltar'), nl,
-    write('======================'), nl,
-    write('Escolha uma opção: '),
+    write('\e[33m======================='), nl,
+    write('\e[33m ESCOLHA A DIFICULDADE '), nl,
+    write('\e[33m=======================\e[0m'), nl,
+    write('\e[32m1. Fácil \e[0m'), nl,
+    write('\e[36m2. Médio \e[0m'), nl,
+    write('\e[31m3. Difícil \e[0m'), nl,
+    write('\e[33m4. Voltar'), nl,
+    write('\e[33m======================\e[0m'), nl,
+    write('\e[34mEscolha uma opção: \e[0m'),
     ler_numero(Escolha).
 
 /**
@@ -60,11 +60,11 @@ Predicado que exibe o menu de seleção de um nível específico do jogo.
 display_level_menu(TotalDeNiveis, Escolha) :-
     console:limpar_tela,
     nl,
-    write('======================='), nl,
-    write('  ESCOLHA O NÍVEL  '), nl,
-    write('======================='), nl,
-    write('Níveis disponíveis: 1 a '), write(TotalDeNiveis), nl,
-    write('Digite o número do nível: '),
+    write('\e[33m======================='), nl,
+    write('\e[33m  ESCOLHA O NÍVEL  '), nl,
+    write('\e[33m======================='), nl,
+    write('\e[33mNíveis disponíveis: 1 a \e[0m'), write(TotalDeNiveis), nl,
+    write('\e[34mDigite o número do nível: \e[0m'),
     ler_numero(Escolha).
 
 /**
@@ -76,6 +76,6 @@ ler_numero(Numero) :-
     ( number_string(Numero, String) ->
         true
     ; 
-        write('Entrada inválida. Por favor, digite um número: '),
+        write('\e[31mEntrada inválida. Por favor, digite um número: \e[0m'),
         ler_numero(Numero)
     ).

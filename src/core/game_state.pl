@@ -36,6 +36,7 @@ Preciado que inicia o loop principal do jogo.
 */
 game_loop(Map, OriginalMap, Marks, PlayerPos, Historico, Status) :-
     console:limpar_tela,
+    nl,
     print_tile_map(Map),
     print_controls,
     ( checa_vitoria(Map, Marks) ->
@@ -62,7 +63,7 @@ process_input('r', _, OriginalMap, _, _, _, Status) :-
 
 /**Se a entrada for 'z' o movimento é desfeito. Este é o caso de quando não tem mais movimento para desfazer.*/
 process_input('z', Map, OriginalMap, Marks, PlayerPos, [], Status) :- 
-    write('Não é possível desfazer mais!'), nl,
+    write('\e[31mNão é possível desfazer mais!\e[0m'), nl,
     sleep(1),
     game_loop(Map, OriginalMap, Marks, PlayerPos, [], Status).
 
@@ -229,7 +230,7 @@ print_cell(marca)   :- write('x').
 Predicado que imprime uma mensagem de vitoria.
 */
 print_you_win :-
-    write('VITÓRIA'), nl.
+    write('\e[32VITÓRIA \e[0m'), nl.
 
 /**
 Predicado que imprime as instruções de controle para o usuario.

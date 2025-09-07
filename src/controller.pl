@@ -37,7 +37,7 @@ process_choice(3) :-
     write('Até logo!'), nl,
     halt.
 process_choice(_) :-
-    write('Opção inválida.'), nl.
+    write('\e[31mOpção inválida. \e[0m'), nl.
 
 /** 
 Predicado que carrega todos os mapas para a dificuldade especificada.
@@ -55,7 +55,7 @@ jogar_niveis([PrimeiroMapa|RestoDosMapas]) :-
     % MODIFICADO: Verifica o status retornado pelo jogo
     game_state:start(PrimeiroMapa, Status),
     ( Status == vitoria -> % Se venceu, continua para o próximo
-        write('Nível concluído! Pressione qualquer tecla para continuar...'), nl,
+        write('\e[32mNível concluído! Pressione qualquer tecla para continuar... \e[0m'), nl,
         get_single_char(_),
         jogar_niveis(RestoDosMapas)
     ; % Se voltou ao menu, para a sequência
@@ -78,7 +78,7 @@ processar_escolha_dificuldade(2) :- selecionar_nivel(medio).
 processar_escolha_dificuldade(3) :- selecionar_nivel(dificil).
 processar_escolha_dificuldade(4). % Fato 
 processar_escolha_dificuldade(_) :- 
-    write('Opção inválida.'), nl,
+    write('\e[31mOpção inválida.\e[0m'), nl,
     selecionar_dificuldade.
 
 /**
@@ -95,6 +95,6 @@ selecionar_nivel(Dificuldade) :-
         % o programa voltará ao menu principal ao final da execução.
         game_state:start(MapaEscolhido, _)
     ; 
-        write('Nível inválido. Tente novamente.'), nl,
+        write('\e[31mNível inválido. Tente novamente.\e[0m'), nl,
         selecionar_nivel(Dificuldade)
     ).
