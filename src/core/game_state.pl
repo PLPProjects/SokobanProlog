@@ -242,7 +242,8 @@ imprimir_celula(marca)   :- write('x').
 Predicado que imprime uma mensagem de vitoria.
 */
 imprimir_vitoria :-
-    write('\e[32VITÓRIA \e[0m'), nl.
+    write('\e[32mVITÓRIA \e[0m'), nl.
+
 
 
 /**
