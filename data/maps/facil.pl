@@ -1,16 +1,6 @@
 :- module(facil, [mapas/1]).
 
 mapas([
-  mapa( %para teste
-        [ [parede, parede, parede, parede, parede, parede, parede],
-          [parede, jogador, vazio, vazio, vazio, vazio, parede],
-          [parede, vazio, vazio, vazio, vazio, vazio, parede],
-          [parede, vazio, caixa, marca, caixa, marca, parede],
-          [parede, vazio, vazio, vazio, vazio, vazio, parede],
-          [parede, parede, parede, parede, parede, parede, parede] ],
-        [[3,3],[3,5]],
-        facil
-    ),
   mapa(
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, jogador, vazio, vazio, vazio, parede, parede],
