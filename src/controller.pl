@@ -2,7 +2,7 @@
 @file controller.pl: Responsável por controlar a execução do jogo.
 */
 
-/** Declara o arquivo como um modulo e exporta a função start_application para outros modulos.*/
+/** Declara o arquivo como um módulo e exporta o predicado start_application para outros modulos.*/
 :- module(controller, [start_application/0]).
 
 /** Importa os modulos de outros arquivos. */
