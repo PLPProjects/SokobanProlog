@@ -1,24 +1,34 @@
+/**
+@file controller.pl: Responsável por controlar a execução do jogo.
+*/
+
+/** Declara o arquivo como um modulo e exporta a função start_application para outros modulos.*/
 :- module(controller, [start_application/0]).
 
+/** Importa os modulos de outros arquivos. */
 :- use_module('ui/menu').  
 :- use_module('core/map_loader'). 
 :- use_module('core/game_state').
 :- use_module(library(lists)).
 
-%% ==========================
-%% PONTO DE ENTRADA
-%% ==========================
+/** 
+Predicado que inicia o fluxo principal do programa.
+*/
 start_application :-                                  
     main_loop. 
 
-%% ==========================
-%% LOOP PRINCIPAL
-%% ==========================
+/** 
+Predicado responsável pelo loop principal do programa, executa de forma recursiva até que o usuário deseje encerrar o jogo.
+*/
 main_loop :-                                            
     menu:display_main_menu(Choice),                    
     process_choice(Choice),                             
     (Choice == 3 -> ! ; main_loop).
 
+/** 
+Predicado que processa a escolha do usuario no menu principal.
+@param Escolha: A escolha do usuário. 
+*/
 process_choice(1) :-                                    
     start_new_game(facil).     
 process_choice(2) :- 
@@ -29,14 +39,17 @@ process_choice(3) :-
 process_choice(_) :-
     write('Opção inválida.'), nl.
 
-
-%% ==========================
-%% INÍCIO DE NOVO JOGO (SEQUENCIAL)
-%% ==========================
+/** 
+Predicado que carrega todos os mapas para a dificuldade especificada.
+@param Dificuldade: Dificuldade especificada.
+*/
 start_new_game(Difficulty) :-                           
     map_loader:load_map(Difficulty, MapList),
     jogar_niveis(MapList).
 
+/**
+Predicado responsável por jogar os níveis da dificuldade em sequência.
+*/
 jogar_niveis([]).
 jogar_niveis([PrimeiroMapa|RestoDosMapas]) :-
     % MODIFICADO: Verifica o status retornado pelo jogo
@@ -49,21 +62,29 @@ jogar_niveis([PrimeiroMapa|RestoDosMapas]) :-
         true 
     ).
 
-%% ==========================
-%% MENU DE SELEÇÃO DE NÍVEL
-%% ==========================
+/**
+Predicado responsável por exibir o menu de dificuldade para que o usuário possa escolher.
+*/
 selecionar_dificuldade :-
     menu:display_difficulty_menu(Escolha),
     processar_escolha_dificuldade(Escolha).
 
+/**
+Predicado que processa a escolha da dificuldade do jogo escolhida pelo usuário.
+@param Escolha: A escolha do usuário.
+*/
 processar_escolha_dificuldade(1) :- selecionar_nivel(facil).
 processar_escolha_dificuldade(2) :- selecionar_nivel(medio).
 processar_escolha_dificuldade(3) :- selecionar_nivel(dificil).
-processar_escolha_dificuldade(4).
+processar_escolha_dificuldade(4). % Fato 
 processar_escolha_dificuldade(_) :- 
     write('Opção inválida.'), nl,
     selecionar_dificuldade.
 
+/**
+Predicado responsável por processar a escolha do nível da dificuldade escolhida pelo usuário.
+@param Dificuldade: a dificuldade escolhida pelo usuário.
+*/
 selecionar_nivel(Dificuldade) :-
     map_loader:load_map(Dificuldade, ListaDeMapas),
     length(ListaDeMapas, TotalDeNiveis),
@@ -73,9 +94,7 @@ selecionar_nivel(Dificuldade) :-
         % A variável de status '_' é ignorada aqui porque, de qualquer forma,
         % o programa voltará ao menu principal ao final da execução.
         game_state:start(MapaEscolhido, _)
-    ; NivelEscolhido == 0 ->
-        selecionar_dificuldade
-    ;
+    ; 
         write('Nível inválido. Tente novamente.'), nl,
         selecionar_nivel(Dificuldade)
     ).
