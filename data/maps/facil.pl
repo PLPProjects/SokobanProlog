@@ -4,7 +4,7 @@ mapas([
   mapa(
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, jogador, vazio, vazio, vazio, parede, parede],
-          [parede, vazio, caixa, caixa, vazio, parede, parede],
+          [parede, vazio, caixa, caixa, vazio, vazio, parede],
           [parede, vazio, parede, marca, vazio, marca, parede],
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede] ],
@@ -25,7 +25,7 @@ mapas([
     ),
 
   mapa(
-        [ [parede, parede, parede, parede, parede, parede, parede, parede],
+        [ [parede, parede, parede, parede, parede, parede, parede, vazio],
           [parede, vazio, vazio, marca, vazio, vazio, parede, parede],
           [parede, vazio, caixa, caixa, parede, marca, vazio, parede],
           [parede, vazio, parede, jogador, caixa, vazio, vazio, parede],
@@ -50,9 +50,9 @@ mapas([
   mapa(
         [ [parede, parede, parede, parede, parede, parede, parede, parede],
           [parede, vazio, vazio, vazio, vazio, parede, parede, parede],
-          [parede, vazio, vazio, marca, marca, vazio, parede, parede],
+          [parede, vazio, vazio, vazio, marca, marca, vazio, parede],
           [parede, vazio, caixa, caixa, caixa, jogador, vazio, parede],
-          [parede, vazio, vazio, parede, marca, vazio, parede, parede],
+          [parede, vazio, vazio, parede, vazio, marca, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede, parede] ],
         [[2,4],[2,5],[4,5]],
         facil
