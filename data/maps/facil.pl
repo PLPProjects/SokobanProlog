@@ -39,7 +39,7 @@ mapas([
         [ [parede, parede, parede, parede, parede, parede, parede],
           [parede, jogador, vazio, vazio, parede, parede, parede],
           [parede, vazio, caixa, caixa, caixa, vazio, parede],
-          [parede, parede, marca, marca, marca, vazio, parede],
+          [parede, parede, vazio, marca, marca, marca, parede],
           [parede, vazio, vazio, vazio, parede, vazio, parede],
           [parede, vazio, vazio, vazio, vazio, vazio, parede],
           [parede, parede, parede, parede, parede, parede, parede] ],
