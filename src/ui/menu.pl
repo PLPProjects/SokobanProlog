@@ -68,7 +68,7 @@ exibir_menu_nivel(TotalDeNiveis, Escolha) :-
     write('\e[33m======================='), nl,
     write('\e[33m  ESCOLHA O NÍVEL  '), nl,
     write('\e[33m======================='), nl,
-    write('\e[33mNíveis disponíveis: 1 a \e[0m'), write(TotalDeNiveis), nl,
+    write('\e[33mNíveis disponíveis: 1 a '), write(TotalDeNiveis), write('\e[0m'),nl,
     write('\e[34mDigite o número do nível: \e[0m'),
     ler_numero(Escolha).
 

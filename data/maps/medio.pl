@@ -1,5 +1,3 @@
-:- module(medio, [mapas/1]).
-
 mapas([
 
   mapa(

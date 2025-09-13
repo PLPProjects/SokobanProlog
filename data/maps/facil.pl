@@ -1,5 +1,3 @@
-:- module(facil, [mapas/1]).
-
 mapas([
   mapa(
         [ [parede, parede, parede, parede, parede, parede, parede],

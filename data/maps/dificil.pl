@@ -1,5 +1,3 @@
-:- module(dificil, [mapas/1]).
-
 mapas([
 
   mapa(

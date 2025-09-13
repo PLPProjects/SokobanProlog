@@ -12,7 +12,7 @@
 
 
 /** Inicializa o programa chamando o predicado executar*/
-:- initialization(executar).
+%:- initialization(executar).
 
 
 /** Inicia a execução do programa chamando o predicado iniciar_aplicacao que vem do arquivo controller.pl*/

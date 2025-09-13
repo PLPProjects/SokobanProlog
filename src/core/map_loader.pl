@@ -12,6 +12,10 @@ Importa a biblioteca lists para operações com listas
 */
 :- use_module(library(lists)).     
 
+/**
+Declara que o predicado 'mapas/1' é dinamico, permitindo que ele seja limpo e redefinido a cada carregamento de mapa.
+*/
+:- dynamic(mapas/1).
 
 /**
 Predicado que constrói o caminho completo para o arquivo do mapa.
@@ -28,11 +32,8 @@ Predicado que carrega um mapa e retorna a lista de niveis.
 @param ListaNiveis: A lista de niveis unificada com o predicado 'maps' do arquivo. 
 */
 carregar_mapa(Dificuldade, ListaNiveis) :-
+    retractall(mapas(_)),
     caminho_arquivo(Dificuldade, Caminho),
-    use_module(Caminho),
-    (
-        Dificuldade = facil -> Modulo = facil;
-        Dificuldade = medio -> Modulo = medio;
-        Dificuldade = dificil -> Modulo = dificil
-    ),
-    Modulo:mapas(ListaNiveis).
+    consult(Caminho),
+    mapas(ListaNiveis).
+

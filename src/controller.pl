@@ -27,7 +27,7 @@ Predicado responsável pelo loop principal do programa, executa de forma recursi
 loop_principal :-                                            
     menu:exibir_menu_principal(Escolha),                    
     processar_escolha(Escolha),                             
-    (Escolha == 3 -> ! ; loop_principal).
+    loop_principal.
 
 
 /** 
