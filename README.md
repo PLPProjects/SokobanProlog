@@ -5,7 +5,7 @@
 ## Descrição do Projeto
 
 Este projeto é uma implementação em terminal do clássico jogo de lógica **Sokoban**, desenvolvida em **Prolog**.  
-O jogador deve empurrar todas as caixas (`B`) até suas posições corretas (`x`) no mapa, usando o menor número de movimentos possível.
+O jogador (😀) deve empurrar todas as caixas (`📦`) até suas posições corretas (`📥`) no mapa, usando o menor número de movimentos possível.
 
 Assim como a primeira versão (em **Haskell**), esta implementação foca em **organização modular** e **arquitetura clara**, incluindo:
 - Menu inicial para seleção de nível (**fácil**, **médio** ou **difícil**).
@@ -31,11 +31,18 @@ sudo apt-get install swi-prolog
 Na raiz do projeto, execute o interpretador Prolog e carregue o arquivo principal:
 
 ```bash
-swipl -s src/main.pl -g start_game -t halt
+cd src
+swipl
+```
+## Dentro do interpretador, rode:
+```prolog
+?- [main].
+?- executar.
 ```
 
 ## Estrutura do Projeto
 
+```
 Sokoban-Prolog/
 ├── data/
 │ └── maps/ # Mapas em Prolog (fácil, médio e difícil).
@@ -50,7 +57,7 @@ Sokoban-Prolog/
 │ └── utils/ # Utilidades gerais.
 │ └── console.pl
 └── README.md
-
+```
 ## Arquitetura
 O projeto segue o princípio de **separação de responsabilidades**:
 - **main.pl**: Inicia o jogo e conecta os módulos.
@@ -67,4 +74,4 @@ O projeto segue o princípio de **separação de responsabilidades**:
 - Tamires Santiago
 
 ## Licença
-Este projeto é distribuído sob a licença BSD 3-Clause. Consulte o arquivo `LICENSE` para mais informações.
+Este projeto é distribuído sob a licença BSD 3-Clause.
