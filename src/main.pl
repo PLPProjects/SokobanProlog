@@ -11,10 +11,6 @@
 :- [controller].
 
 
-/** Inicializa o programa chamando o predicado executar*/
-%:- initialization(executar).
-
-
 /** Inicia a execução do programa chamando o predicado iniciar_aplicacao que vem do arquivo controller.pl*/
 executar :-
     iniciar_aplicacao.  % Inicia o fluxo principal da aplicação

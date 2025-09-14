@@ -12,10 +12,12 @@ Importa a biblioteca lists para operações com listas
 */
 :- use_module(library(lists)).     
 
+
 /**
 Declara que o predicado 'mapas/1' é dinamico, permitindo que ele seja limpo e redefinido a cada carregamento de mapa.
 */
 :- dynamic(mapas/1).
+
 
 /**
 Predicado que constrói o caminho completo para o arquivo do mapa.

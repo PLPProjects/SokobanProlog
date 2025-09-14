@@ -231,11 +231,12 @@ imprimir_linha([Celula|Resto]) :-
 /**
 Mapeamento dos nomes das celulas para os caracteres de exibicao.
 */
-imprimir_celula(parede)  :- write('█').
-imprimir_celula(vazio)   :- write(' ').
-imprimir_celula(jogador) :- write('@').
-imprimir_celula(caixa)   :- write('B').
-imprimir_celula(marca)   :- write('x').
+imprimir_celula(parede)  :- write('🟫').
+imprimir_celula(vazio)   :- write('⬛').
+imprimir_celula(jogador) :- write('😀').
+imprimir_celula(caixa)   :- write('📦').
+imprimir_celula(marca)   :- write('🎯').
+
 
 
 /**
