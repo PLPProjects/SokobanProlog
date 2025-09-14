@@ -23,7 +23,7 @@ mapas([
     ),
 
   mapa(
-        [ [parede, parede, parede, parede, parede, parede, parede, vazio],
+        [ [parede, parede, parede, parede, parede, parede, parede, parede],
           [parede, vazio, vazio, marca, vazio, vazio, parede, parede],
           [parede, vazio, caixa, caixa, parede, marca, vazio, parede],
           [parede, vazio, parede, jogador, caixa, vazio, vazio, parede],
