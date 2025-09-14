@@ -3,15 +3,15 @@ mapas([
   mapa(
         [
           [vazio,vazio,vazio,parede,parede,parede,vazio,vazio,vazio,vazio,vazio],
-          [vazio,vazio,vazio,parede,vazio,parede,vazio,parede,parede,parede,parede],
-          [vazio,vazio,parede,vazio,vazio,parede,parede,parede,vazio,vazio,parede], 
-          [vazio,parede,vazio,caixa,vazio,vazio,vazio,vazio,vazio,vazio,parede], 
+          [vazio,vazio,parede,parede,vazio,parede,vazio,parede,parede,parede,parede],
+          [vazio,parede,parede,vazio,vazio,parede,parede,parede,vazio,vazio,parede], 
+          [parede,parede,vazio,caixa,vazio,vazio,vazio,vazio,vazio,vazio,parede], 
           [parede,vazio,vazio,vazio,jogador,caixa,vazio,parede,vazio,vazio,parede], 
-          [vazio,parede,parede,vazio,caixa,parede,parede,parede,vazio,vazio,parede], 
+          [parede,parede,parede,vazio,caixa,parede,parede,parede,vazio,vazio,parede], 
           [vazio,vazio,parede,vazio,vazio,parede,marca,marca,vazio,vazio,parede], 
-          [vazio,vazio,parede,vazio,parede,parede,marca,parede,vazio,parede,vazio], 
+          [vazio,parede,parede,vazio,parede,parede,marca,parede,vazio,parede,parede], 
           [vazio,parede,vazio,vazio,vazio,vazio,vazio,vazio,parede,parede,vazio],
-          [vazio,parede,vazio,vazio,vazio,vazio,vazio,parede,vazio,vazio,vazio],
+          [vazio,parede,vazio,vazio,vazio,vazio,vazio,parede,parede,vazio,vazio],
           [vazio,parede,parede,parede,parede,parede,parede,parede,vazio,vazio,vazio]
         ],
         [[6,6],[6,7],[7,6]],
@@ -94,4 +94,5 @@ mapas([
     )
 
 ]).
+
 
