@@ -73,21 +73,21 @@ mapas([
 
   mapa(
         [
-          [vazio,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,vazio],
-          [vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio],
+          [parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede],
+          [parede,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,parede],
           [parede,vazio,vazio,vazio,marca,caixa,vazio,vazio,vazio,vazio,marca,vazio,caixa,marca,vazio,vazio,marca,vazio,caixa,vazio,vazio,vazio,marca,caixa,vazio,vazio,parede],
-          [vazio,parede,vazio,caixa,parede,vazio,parede,caixa,parede,vazio,parede,vazio,parede,vazio,parede,caixa,parede,vazio,parede,vazio,parede,vazio,parede,vazio,vazio,parede,vazio], 
+          [parede,parede,vazio,caixa,parede,vazio,parede,caixa,parede,vazio,parede,vazio,parede,vazio,parede,caixa,parede,vazio,parede,vazio,parede,vazio,parede,vazio,vazio,parede,parede], 
           [parede, vazio, vazio, marca, vazio, vazio, marca, vazio, vazio, vazio,vazio, caixa, marca, vazio, vazio, marca, vazio, vazio, marca, caixa, vazio, marca, vazio, vazio, marca, vazio, parede], 
-          [vazio, parede, vazio, parede, caixa, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, caixa, parede, caixa, vazio, caixa, parede, vazio, parede, caixa, parede, vazio, parede, vazio], 
+          [parede, parede, vazio, parede, caixa, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, caixa, parede, caixa, vazio, caixa, parede, vazio, parede, caixa, parede, vazio, parede, parede], 
           [parede, vazio, marca, vazio, vazio, vazio, vazio, vazio, marca, caixa, vazio, marca, caixa, vazio, vazio, vazio, vazio, marca, vazio, caixa, marca, vazio, vazio, marca, vazio, vazio, parede], 
-          [vazio, parede, vazio, caixa, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, jogador, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, caixa, vazio, parede, vazio], 
+          [parede, parede, vazio, caixa, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, jogador, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, caixa, vazio, parede, parede], 
           [parede, vazio, vazio, marca, vazio, vazio, marca, caixa, vazio, marca, vazio, vazio, vazio, vazio, caixa, marca, vazio, caixa, marca, vazio, vazio, vazio, vazio, vazio, marca, vazio, parede], 
-          [vazio, parede, vazio, parede, caixa, parede, vazio, parede, caixa, vazio, caixa, parede, caixa, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, caixa, parede, vazio, parede, vazio], 
+          [parede, parede, vazio, parede, caixa, parede, vazio, parede, caixa, vazio, caixa, parede, caixa, parede, vazio, parede, vazio, parede, vazio, parede, vazio, parede, caixa, parede, vazio, parede, parede], 
           [parede,vazio,marca,vazio,vazio,marca,vazio,caixa,marca,vazio,vazio,marca,vazio,vazio,marca,caixa,vazio,vazio,vazio,vazio,marca,vazio,vazio,marca,vazio,vazio,parede], 
-          [vazio,parede,vazio,vazio,parede,vazio,parede,vazio,parede,vazio,parede,caixa,parede,vazio,parede,vazio,parede,vazio,parede,caixa,parede,vazio,parede,caixa,vazio,parede,vazio],
+          [parede,parede,vazio,vazio,parede,vazio,parede,vazio,parede,vazio,parede,caixa,parede,vazio,parede,vazio,parede,vazio,parede,caixa,parede,vazio,parede,caixa,vazio,parede,parede],
           [parede,vazio,vazio,caixa,marca,vazio,vazio,vazio,caixa,vazio,marca,vazio,vazio,marca,caixa,vazio,marca,vazio,vazio,vazio,vazio,caixa,marca,vazio,vazio,vazio,parede], 
-          [vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio],
-          [vazio,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,vazio]
+          [parede,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,vazio,parede,parede],
+          [parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede,parede]
         ],
         [[2,4],[2,10],[2,13],[2,16],[2,22],[4,3],[4,6],[4,12],[4,15],[4,18],[4,21],[4,24],[6,2],[6,8],[6,11],[6,17],[6,20],[6,23],[8,3],[8,6],[8,9],[8,15],[8,18],[8,24],[10,2],[10,5],[10,8],[10,11],[10,14],[10,20],[10,23],[12,4],[12,10],[12,13],[12,16],[12,22]],
         dificil
