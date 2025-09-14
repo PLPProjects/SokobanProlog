@@ -1,6 +1,6 @@
 # Sokoban-Prolog
 
-![Gameplay do Sokoban](https://github.com/eduardaviana/Sokoban-Haskell/blob/main/data/sokoban-haskell.gif)
+![Gameplay do Sokoban](data/sokoban-prolog.gif)
 
 ## Descrição do Projeto
 
